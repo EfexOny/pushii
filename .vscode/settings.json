@@ -1,0 +1,15 @@
+{
+<<<<<<< Updated upstream
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}
+=======
+  "files.associations": {
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "string": "cpp",
+    "new": "cpp"
+  }
+}
+>>>>>>> Stashed changes
