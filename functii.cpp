@@ -7,7 +7,7 @@ using namespace std;
 char exprModi[20];
 int indexModi = 0;
 
-int nrez=0;
+int nrez=0; 
 
 void init(stiva &s)
 {
@@ -213,33 +213,22 @@ int updateEval(char expresie)
     return 1;
 }
 
+
+
+
 int evaluarePrefix(stiva s,string expr)
 {
     int rez=0;
 
-    //
     for(int i=expr.length()-1;i>=0;i--)
     {
         if(!isdigit(expr[i]))
         {
+            
             int nr1,nr2;
             string n1,n2;
            
 
-            if(nrez !=0)
-            {
-                rez = 0;
-
-                n1=top(s);
-                pop(s);
-    
-                nr1=n1[0] -'0';
-                rez += ecuatie(nrez,nr1,expr[i]);
-
-               
-            }
-            else
-            {
                 n2=top(s);
                 pop(s);
                 n1=top(s);
@@ -248,11 +237,11 @@ int evaluarePrefix(stiva s,string expr)
                 nr2=n2[0] -'0';
                 nr1=n1[0] -'0';
 
-                rez += ecuatie(nr1,nr2,expr[i]);
-              
+                rez = ecuatie(nr2,nr1,expr[i]);
 
-            }
-            nrez=rez;
+                cout<<endl<<nr2<<" "<<expr[i]<<" "<<nr1<<" = "<<rez<<" "<<endl;
+
+                push(s,to_string(rez));
 
         }
         else
@@ -260,9 +249,6 @@ int evaluarePrefix(stiva s,string expr)
             push(s,string(1,expr[i]));
         }
     }
-
-    
-
     return rez;
 }
 

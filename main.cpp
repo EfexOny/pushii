@@ -10,7 +10,7 @@ int main()
     stiva2 s2;
     init(s);
     init2(s2);
-    char expresie[20] = "2+3*4-5";
+    char expresie[20] = "(3+4)*(5-2)";
 
     int index, index_modi;
     for (index = 0; index < strlen(expresie); index++)
@@ -38,7 +38,7 @@ int main()
 
     char prefix[20] = "";
     strcpy(prefix, exprModi);
-    // char prefix[20]= "234*+5-";
+
 
     for (index = 0; index < strlen(prefix); index++)
     {
@@ -56,11 +56,11 @@ int main()
 
     cout << rezultat;
     pop(s);
-    
     cout<<endl;
 
-    cout<<evaluarePrefix(s,rezultat);
+    init(s);
 
+    cout<<"REZ:"<<evaluarePrefix(s,rezultat);
 
     return 0;
 }
